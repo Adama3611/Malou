@@ -1,34 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="./style/css/styles.css">
-        
-    </head> 
-    <body>
-        <div class="container">
-            <div >
-                <h1 class = "header_text"> Do you want to be my valentines?</h1>
-            </div>
-            <div class="gif_container">
-                <img src="https://media.giphy.com/media/LnKonfpQ44fNvuGLkA/giphy.gif" alt="Cute animated illustration">
-            </div>
-            <div class = "buttons">
-                <button class="btn" id = "yesButton" onclick="nextPage()">Yes</button>
-                <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
-                <script>
-                    function nextPage() {
-                        window.location.href = "yes.html";
-                    }
-                    
-                    function moveButton() {
-                        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
-                        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
-                        document.getElementById('noButton').style.left = `${x}px`;
-                        document.getElementById('noButton').style.top = `${y}px`;
-                    }
-                </script> 
-            </div>
-        </div>
-       
-    </body> 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A letter for you 💌</title>
+  <meta name="description" content="Open it. Please. 🥺">
+  <meta property="og:title" content="A letter for you 💌">
+  <meta property="og:description" content="Open it. Please. 🥺">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/css/main.css">
+</head>
+<body>
+  <div id="hearts" aria-hidden="true"></div>
+
+  <main class="stage">
+    <!-- Step 1: the envelope -->
+    <section class="envelope-wrap" id="envelopeWrap">
+      <button class="envelope" id="envelope" type="button" aria-label="Open the letter">
+        <span class="env-back"></span>
+        <span class="env-letter">For <span data-name>Malou</span> ♥</span>
+        <span class="env-front"></span>
+        <span class="env-flap"></span>
+        <span class="env-seal">♥</span>
+      </button>
+      <p class="hint">You've got a letter, <strong data-name>Malou</strong><small>tap to open</small></p>
+    </section>
+
+    <!-- Step 2: the question -->
+    <section class="card" id="card" hidden>
+      <div class="cat m0" id="cat" aria-hidden="true">
+        <svg viewBox="0 0 200 180">
+          <!-- heart above the head (whole, then broken when she's crying) -->
+          <g transform="translate(100 6)">
+            <g class="heart">
+              <path class="p p0 p1 p2" fill="#ff4d88" d="M0 6 C-3 -2 -14 -2 -14 8 C-14 15 -4 20 0 25 C4 20 14 15 14 8 C14 -2 3 -2 0 6 Z"/>
+              <g class="p p3" fill="#ff4d88">
+                <path transform="translate(-3 2) rotate(-10)" d="M0 6 C-3 -2 -14 -2 -14 8 C-14 15 -4 20 0 25 L-3 18 L2 13 L-2 9 Z"/>
+                <path transform="translate(3 2) rotate(10)" d="M0 6 C3 -2 14 -2 14 8 C14 15 4 20 0 25 L-3 18 L2 13 L-2 9 Z"/>
+              </g>
+            </g>
+          </g>
+
+          <g stroke="#4a2c3a" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+            <!-- ears -->
+            <polygon points="38,80 50,22 96,54" fill="#fff3f6"/>
+            <polygon points="162,80 150,22 104,54" fill="#fff3f6"/>
+            <polygon points="52,68 56,38 80,54" fill="#ffb3c8" stroke="none"/>
+            <polygon points="148,68 144,38 120,54" fill="#ffb3c8" stroke="none"/>
+            <!-- head -->
+            <ellipse cx="100" cy="110" rx="74" ry="58" fill="#fff3f6"/>
+            <!-- paws -->
+            <ellipse cx="76" cy="166" rx="15" ry="10" fill="#fff3f6"/>
+            <ellipse cx="124" cy="166" rx="15" ry="10" fill="#fff3f6"/>
+            <!-- whiskers -->
+            <g stroke-width="3" opacity="0.55">
+              <line x1="40" y1="118" x2="16" y2="113"/>
+              <line x1="40" y1="127" x2="16" y2="131"/>
+              <line x1="160" y1="118" x2="184" y2="113"/>
+              <line x1="160" y1="127" x2="184" y2="131"/>
+            </g>
+            <!-- happy eyes ^^ -->
+            <path class="p p0" fill="none" d="M63 106 Q74 94 85 106 M115 106 Q126 94 137 106"/>
+            <!-- sad brows -->
+            <path class="p p2 p3" fill="none" stroke-width="3.5" d="M62 90 L84 84 M138 90 L116 84"/>
+            <!-- mouths -->
+            <path class="p p0" fill="none" stroke-width="3.5" d="M88 125 Q94 133 100 125 Q106 133 112 125"/>
+            <path class="p p1" fill="none" stroke-width="3.5" d="M92 130 Q100 126 108 130"/>
+            <path class="p p2 p3" fill="none" stroke-width="3.5" d="M86 138 Q100 124 114 138"/>
+          </g>
+
+          <!-- open eyes -->
+          <g class="p p1 p2 p3">
+            <circle cx="74" cy="103" r="8" fill="#4a2c3a"/>
+            <circle cx="126" cy="103" r="8" fill="#4a2c3a"/>
+            <circle cx="77" cy="100" r="2.6" fill="#fff"/>
+            <circle cx="129" cy="100" r="2.6" fill="#fff"/>
+          </g>
+          <!-- nose + blush -->
+          <path d="M95 116 L105 116 L100 122 Z" fill="#ff7aa2"/>
+          <ellipse cx="54" cy="122" rx="11" ry="6" fill="#ff9fb5" opacity="0.7"/>
+          <ellipse cx="146" cy="122" rx="11" ry="6" fill="#ff9fb5" opacity="0.7"/>
+          <!-- tears -->
+          <g class="p p3" fill="#7cc6ff">
+            <path class="tear" d="M70 112 q-5 8 0 11 q5 -3 0 -11 Z"/>
+            <path class="tear r" d="M130 112 q-5 8 0 11 q5 -3 0 -11 Z"/>
+          </g>
+        </svg>
+      </div>
+
+      <h1><span class="name" data-name>Malou</span>, will you be my valentine?</h1>
+      <p class="sub" id="sub" aria-live="polite">I made this just for you ♥</p>
+
+      <div class="buttons">
+        <button class="btn yes" id="yesButton" type="button">Yes</button>
+        <button class="btn no" id="noButton" type="button">No</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="style/js/config.js"></script>
+  <script src="style/js/hearts.js"></script>
+  <script src="style/js/ask.js"></script>
+</body>
 </html>

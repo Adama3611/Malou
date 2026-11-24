@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="./style/css/yes_styles.css">
-        
-    </head> 
-    <body>
-        <div class="container">
-            <div >
-                <h1 class = "header_text">Yippie!!! </h1>
-            </div>
-            <div class="gif_container">
-                <img src="./style/images/cute-cat.gif" alt="Cute animated illustration">
-            </div>
-            <p class = "text"> I love you.</p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yippie!!! 💖</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/css/main.css">
+</head>
+<body>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div id="hearts" aria-hidden="true"></div>
+
+  <main class="stage">
+    <div class="stack">
+      <section class="card pop">
+        <h1 class="yippie" id="yippie" title="tap me">Yippie!!!</h1>
+        <img class="cat-gif" src="style/images/cute-cat.gif" alt="A happy cat">
+        <p class="tries" id="tries"></p>
+        <div class="letter" id="letter" title="tap to skip">
+          <p class="typed" id="typed"></p>
+          <p class="sig" id="sig"></p>
         </div>
-       
-    </body> 
+      </section>
+
+      <section class="card plans" id="plans" hidden>
+        <h2>So… what's our date? 🗓️</h2>
+        <div class="options" id="options"></div>
+        <p class="picked" id="picked" aria-live="polite"></p>
+      </section>
+
+      <a class="replay" href="index.html">↺ ask me again</a>
+    </div>
+  </main>
+
+  <script src="style/js/config.js"></script>
+  <script src="style/js/hearts.js"></script>
+  <script src="style/js/yes.js"></script>
+</body>
 </html>
